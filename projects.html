@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Risha Ranjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.png" alt="Logo"></a>
+            </div>
+            <ul>
+                <li><a href="projects.html" class="active-link">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <header class="projects-header">
+            <h1>My <span class="highlight-blue">Work</span></h1>
+            <p>A collection of robotics, perception, and planning systems.</p>
+        </header>
+
+        <div class="grid">
+            <a href="catalyst.html" class="project-card-wrapper">
+                <article class="project-card">
+                    <div class="card-image-top" style="background-color: var(--pink);">
+                        <span class="placeholder-icon">
+                            <img src="assets/Catalyst_logo.png" style="width:200px;height:200px;">
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tags">
+                            <span class="tag tag-blue">ROS2</span>
+                            <span class="tag tag-green">Python</span>
+                        </div>
+                        <h3>Catalyst: Mobile Manipulator for Lab Automation</h3>
+                        <p></p>
+                    </div>
+                </article>
+            </a>
+
+            <a href="convoy.html" class="project-card-wrapper">
+                <article class="project-card">
+                    <div class="card-image-top" style="background-color: var(--blue);">
+                        <span class="placeholder-icon">
+                            <img src="assets/car.png" style="width:150px;height:150px;">
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tags">
+                            <span class="tag tag-green">Python</span>
+                            <span class="tag tag-yellow">Controls</span>
+                            <span class="tag tag-blue">ROS2</span>
+                        </div>
+                        <h3>Convoy: Autonomous Platooning with Fleets of Vehicles</h3>
+                        <p></p>
+                    </div>
+                </article>
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

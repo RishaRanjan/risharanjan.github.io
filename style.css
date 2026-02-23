@@ -223,3 +223,78 @@ nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
     border-radius: 50%;
     display: inline-block;
 }
+
+/* Projects Page Specifics */
+.projects-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.projects-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.projects-header p {
+    font-family: 'Quicksand', sans-serif;
+    color: #666;
+}
+
+/* The Card Wrapper (makes the whole box clickable) */
+.project-card-wrapper {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-card {
+    background: white;
+    border-radius: 24px; /* Soft, very rounded corners */
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Hover Effect: Card lifts and shadow deepens */
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.card-image-top {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card-body h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 12px 0;
+    font-size: 1.6rem;
+}
+
+.card-body p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+/* Active Link styling to show user where they are */
+.active-link {
+    border-bottom: 2px solid var(--blue);
+}
