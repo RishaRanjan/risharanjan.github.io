@@ -1,0 +1,225 @@
+/* Color Variables */
+:root {
+    --pink: #FFD1DC;
+    --blue: #AEC6CF;
+    --green: #B2E2D2;
+    --yellow: #FFF9C4;
+    --dark: #333;
+    --light: #f9f9f9;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/* Navigation */
+.logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 10%;
+    background: white;
+}
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
+
+/* Hero Section */
+
+
+.hero-about {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%); 
+}
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; 
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%; 
+    border: 8px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    object-fit: cover; 
+}
+
+.hero-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.highlight-pink { color: #d88a9d; border-bottom: 4px solid var(--pink); }
+
+.intro-blurb {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #555;
+}
+
+/* Updated Buttons */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-blue {
+    background-color: var(--blue);
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+}
+
+.btn-outline {
+    border: 2px solid var(--blue);
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+}
+
+.highlight-blue { border-bottom: 5px solid var(--blue); }
+
+.btn-pink {
+    background-color: var(--pink);
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Grid Layout */
+.container { width: 80%; margin: auto; padding: 50px 0; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card-img { height: 200px; display: flex; align-items: center; justify-content: center; }
+
+.card-content { padding: 20px; }
+
+/* Tags */
+.tag {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.tag-blue { background: var(--blue); }
+.tag-green { background: var(--green); }
+.tag-pink { background: var(--pink); }
+.tag-yellow { background: var(--yellow); }
+
+
+
+/* Ensure the container inside hero-about is also a flexbox */
+.hero-about .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Keeps it mobile-friendly */
+}
+
+/* Update the hero-about background to ensure it fills space */
+.hero-about {
+    width: 100%;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%);
+}
+
+/* Make sure the image doesn't overflow its flex container */
+.profile-img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; 
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; /* Makes it a bold statement */
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+/* Optional: adjust the highlight color to look cleaner with the serif font */
+.highlight-pink { 
+    color: #d88a9d; 
+    border-bottom: 4px solid var(--pink);
+    padding-bottom: 2px;
+}
+
+/* Apply Quicksand to the blurb and sub-text */
+.intro-blurb, 
+.hero-text p:not(.intro-blurb) {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500; /* Medium weight for better readability */
+}
+
+.intro-blurb {
+    font-size: 1.3rem; /* Slightly larger */
+    margin: 20px 0 10px 0;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Specific styling for the internship line */
+.hero-text p:not(.intro-blurb) {
+    font-size: 1.1rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Optional: Add a small "active" dot next to internship status */
+.hero-text p:not(.intro-blurb)::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--green);
+    border-radius: 50%;
+    display: inline-block;
+}
