@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalyst | Risha Ranjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.png" alt="Logo"></a>
+            </div>
+            <ul>
+                <li><a href="projects.html" class="active-link">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="project-detail-header">
+            <span class="tag tag-green">In Progress</span>
+            <h1>Catalyst: Mobile Manipulator for Lab Automation</h1>
+            <p class="authors">Team D: <strong>Risha Ranjan</strong>, Srishti Gupta, Shua Halle, Andrew Noble, Aman
+                Tambi</p>
+        </section>
+
+        <div class="project-hero-media" style="background-color: var(--pink);">
+            <img src="assets/catalyst_arm.png" alt="Catalyst Robot Architecture" class="main-project-img">
+            <img src="assets/catalyst_base.png" alt="Catalyst Robot Architecture" class="main-project-img">
+            <img src="assets/catalyst_integrated.png" alt="Catalyst Robot Architecture" class="main-project-img">
+        </div>
+
+        <section class="project-content">
+            <div class="content-grid">
+                <div class="description">
+                    <h2>Project Overview</h2>
+                    <p>
+                        Catalyst is an autonomous mobile manipulator designed to automate repetitive tasks in laboratory
+                        environments, specifically the high-precision handling of wellplates. My work so far centers on
+                        the <strong>Perception-to-Manipulation pipeline</strong>, bridging the gap between raw sensor
+                        data and reliable robotic interaction.
+                    </p>
+
+                    <h3>1. Hand-in-Eye Calibration & TF Validation</h3>
+                    <p>
+                        To enable the robot to "see" its workspace, I implemented a <strong>Hand-in-Eye
+                            calibration</strong> routine to establish the rigid transform between the camera and the
+                        robot’s end-effector.
+                    </p>
+                    <ul>
+                        <li>Used an <strong>Intel RealSense D435i</strong> mounted directly to the xArm6 end-effector.
+                        </li>
+                        <li>Solved the calibration using the $AX = XB$ formulation, utilizing 27 unique AprilTag
+                            configurations to optimize the static transform.</li>
+                        <li>Validated the transform tree in RViz to ensure that AprilTag pose estimates remained
+                            consistent across the entire arm workspace.</li>
+                    </ul>
+
+                    <h3>2. Wellplate Grasp Pose Computation</h3>
+                    <p>
+                        Following calibration, I developed the logic to translate detected markers into actionable Tool
+                        Center Point (TCP) targets.
+                    </p>
+                    <ul>
+                        <li><strong>TCP Definition:</strong> Calculated the precise geometric center of our custom
+                            3D-printed gripper fingers relative to the final robot link.</li>
+                        <li><strong>Frame Chaining:</strong> Built a pipeline to compute the wellplate center by
+                            measuring offsets from AprilTags mounted on the physical stand.</li>
+                        <li><strong>Coordinate Alignment:</strong> Debugging rotational frame misalignments to ensure
+                            the robot can grasp objects even when they are rotated relative to the table edge.</li>
+                    </ul>
+                </div>
+
+                <aside class="sidebar-content">
+                    <div class="tech-specs">
+                        <h3>Technical Stack</h3>
+                        <ul>
+                            <li><strong>Framework:</strong> ROS2 (Jazzy), Docker</li>
+                            <li><strong>Manipulation:</strong> MoveIt2, xArm6</li>
+                            <li><strong>Perception:</strong> RealSense, AprilTags</li>
+                            <li><strong>Edge Compute:</strong> Jetson AGX Orin</li>
+                            <li><strong>Languages:</strong> Python, C++</li>
+                        </ul>
+                    </div>
+
+                    <div class="video-container-vertical" style="margin-top: 30px;">
+                        <video autoplay muted loop playsinline class="portfolio-video">
+                            <source src="assets/catalyst_pick.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+
+        <section class="challenges-section">
+            <h2>Engineering Challenges</h2>
+            <div class="grid">
+                <div class="card-body"
+                    style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <h4>Error Propagation</h4>
+                    <p>Small rotational errors in the camera-to-EE transform amplify across the kinematic chain. I am
+                        currently implementing <strong>temporal averaging</strong> of pose detections to filter out
+                        single-frame noise and improve grasp repeatability.</p>
+                </div>
+                <div class="card-body"
+                    style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <h4>Mechanical Compliance</h4>
+                    <p>Our custom 3D-printed gripper introduces minor flex under load. To maintain precision placement
+                        of wellplates, I am refining the CAD models and adjusting the software-defined TCP to account
+                        for finger deflection.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

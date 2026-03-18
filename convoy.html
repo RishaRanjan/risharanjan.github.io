@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convoy Project | Risha Ranjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.png" alt="Logo"></a>
+            </div>
+            <ul>
+                <li><a href="projects.html" class="active-link">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="project-detail-header">
+            <span class="tag tag-blue">ISER 2023</span>
+            <h1>Convoy: Autonomous Platooning with Fleets of Vehicles</h1>
+            <p class="authors">Michael H. Shaham, <strong>Risha Ranjan</strong>, Engin Kirda, Taskin Padir</p>
+
+            <div class="project-links">
+                <a href="assets/Publication.pdf" class="btn-blue">Final Paper</a>
+                <a href="https://github.com/michael-h-shaham/convoy-ros/tree/iser_2023" class="btn-outline">ROS Code</a>
+                <a href="https://github.com/michael-h-shaham/convoy-notebooks/tree/iser_2023"
+                    class="btn-outline">Simulation Code</a>
+            </div>
+        </section>
+
+
+        <section class="project-content">
+            <div class="content-grid">
+                <div class="description">
+                    <h2>Abstract</h2>
+                    <p>
+                        Autonomous vehicle platoons present near- and long-term opportunities to enhance operational
+                        efficiencies and save lives. This paper introduces a testbed for evaluating and benchmarking
+                        platooning algorithms on 1/10th scale vehicles with onboard sensors.
+                    </p>
+                    <p>
+                        We evaluate three algorithms—linear feedback and two variations of distributed model predictive
+                        control (DMPC)—and compare results on typical scenarios where the lead vehicle tracks a variable
+                        speed reference. Our findings show that DMPC algorithms significantly outperform linear feedback
+                        on hardware and in simulation as platoon size increases.
+                    </p>
+                </div>
+
+                <aside class="tech-specs">
+                    <h3>Technical Stack</h3>
+                    <ul>
+                        <li><strong>Framework:</strong> ROS2</li>
+                        <li><strong>Language:</strong> Python / Jupyter</li>
+                        <li><strong>Control:</strong> DMPC, Linear Feedback</li>
+                        <li><strong>Hardware:</strong> 1/10th Scale Vehicles</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="video-demos">
+            <h2>Experiment Examples</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <h4>Squared 2-norm DMPC</h4>
+                    <div class="video-placeholder">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/E19VNJ4mqMI?si=QYVwDAPz7jfdN25K"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <h4>1-norm DMPC</h4>
+                    <div class="video-placeholder">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/A_Z8fpYxPyU?si=tlNieSKGb5Ozy_co"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <h4>Linear Feedback</h4>
+                    <div class="video-placeholder">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/BoqMhs5x7GE?si=ovhJ3Q9eUC-TGSPE"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

@@ -298,3 +298,237 @@ nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
 .active-link {
     border-bottom: 2px solid var(--blue);
 }
+
+
+/* for my convoy page */
+
+/* Project Detail Styles */
+.project-detail-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.authors {
+    font-family: 'Quicksand', sans-serif;
+    color: #666;
+    margin: 15px 0;
+}
+
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Update the Hero Media to handle multiple images */
+.project-hero-media {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    background: var(--pink); /* Your specific color for Catalyst */
+    display: flex;
+    justify-content: center; /* Centers the group */
+    align-items: center;
+    gap: 20px; /* Space between the three images */
+    padding: 30px; /* Padding inside the pink box */
+    flex-wrap: wrap; /* Makes it mobile-friendly */
+}
+
+/* Force all images to be the same height and size */
+.project-hero-media .main-project-img {
+    height: 250px; /* Set a consistent height */
+    width: auto;   /* Let width adjust naturally */
+    max-width: 30%; /* Ensure 3 images fit comfortably */
+    border-radius: 12px; /* Soften the image corners */
+    object-fit: cover; /* Crops slightly if aspect ratios differ to keep it neat */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background: white; /* Optional: adds a white background if images are transparent */
+}
+
+/* Mobile fix for the 3 images */
+@media (max-width: 768px) {
+    .project-hero-media .main-project-img {
+        max-width: 100%; /* Stack them on small screens */
+        height: auto;
+        width: 80%;
+    }
+}
+
+.main-project-img {
+    max-width: 400px;
+    height: auto;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.description h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.tech-specs {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    height: fit-content;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tech-specs h3 { margin-top: 0; font-family: 'Playfair Display', serif; }
+.tech-specs ul { list-style: none; padding: 0; }
+.tech-specs li { margin-bottom: 10px; font-family: 'Quicksand', sans-serif; }
+
+/* Video Section */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.video-card h4 {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .content-grid { grid-template-columns: 1fr; }
+}
+
+/* Keep the tech-specs card looking clean */
+.tech-specs {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .video-container-vertical {
+        max-width: 320px; /* Don't let it get huge on tablets */
+        margin: 20px auto;
+    }
+}
+
+/* Sidebar Container */
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the video under the tech card */
+    gap: 20px;
+}
+
+/* Vertical Video Adjustment */
+.video-container-vertical {
+    width: 70%;
+    max-width: 250px; /* Adjust this number to make it even smaller/larger */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: #000;
+    margin: 0 auto; /* Ensures it stays centered if the sidebar is wider */
+}
+
+.portfolio-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+}
+
+/* Ensure the Tech Card stays full width of the sidebar */
+.tech-specs {
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/* Contact Page Specifics */
+.contact-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 20px auto;
+}
+
+.contact-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-family: 'Quicksand', sans-serif;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    color: var(--dark);
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.contact-card:hover .btn-text {
+    border-bottom: 2px solid var(--blue);
+}
