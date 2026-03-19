@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTG Project | Risha Ranjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../assets/logo.png">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../../"><img src="../../assets/logo.png" alt="Logo"></a>
+            </div>
+            <ul>
+                <li><a href="../../">Home</a></li>
+                <li><a href="../" class="active-link">Projects</a></li>
+                <li><a href="../../about/">About</a></li>
+                <li><a href="../../contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="project-detail-header">
+            <span class="tag tag-pink">Spring 2023</span>
+            <h1>PTG: Perceptually-enabled Task Guidance</h1>
+        </section>
+
+        <section class="project-hero-media" style="background: var(--yellow);">
+            <img src="../../assets/IMG_2333.JPG" alt="Risha wearing Hololens" class="main-project-img">
+            <img src="../../assets/IMG_3186.JPG" alt="Team at University of Florida" class="main-project-img">
+            <img src="../../assets/IMG_3197.JPG" alt="DARPA Project Demo" class="main-project-img">
+        </section>
+
+        <section class="project-content">
+            <div class="content-grid">
+                <div class="description">
+                    <h2>Overview</h2>
+                    <p>
+                        The Perceptually-enabled Task Guidance (PTG) program aims to develop AI technologies to help users perform complex physical tasks. In collaboration with a team of over 10 professionals from various institutes, I helped develop an advanced augmented reality system to DARPA project leads.
+                    </p>
+                    
+                    <h3>Key Contributions</h3>
+                    <ul>
+                        <li><strong>3D Object Tracking:</strong> Designed and implemented a robust tracking system using <strong>Kalman filters</strong> for real-time world state modeling and precise object localization.</li>
+                        <li><strong>Object Contact Graphs:</strong> Led the development of a contact graph system that monitors real-time object interactions, feeding critical spatial data into a larger knowledge graph.</li>
+                        <li><strong>AR Integration:</strong> Integrated these perception modules into a Hololens-based AR interface to provide intuitive, real-time guidance to the user.</li>
+                    </ul>
+                </div>
+
+                <aside class="tech-specs">
+                    <h3>Technical Stack</h3>
+                    <ul>
+                        <li><strong>Hardware:</strong> Microsoft HoloLens 2</li>
+                        <li><strong>Perception:</strong> Kalman Filtering (3D)</li>
+                        <li><strong>Data Ops:</strong> Knowledge Graphs</li>
+                        <li><strong>Framework:</strong> ROS2 / Python</li>
+                        <li><strong>Collaboration:</strong> University of Florida, DARPA</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
