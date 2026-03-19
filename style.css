@@ -27,7 +27,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 2rem 10%;
-    background: white;
+    background: transparent;
 }
 
 nav ul { display: flex; list-style: none; }
@@ -36,10 +36,11 @@ nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
 
 /* Hero Section */
 
-
-.hero-about {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%); 
+/* This ensures the gradient stretches the full height of the viewport */
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(180deg, #ffffff 0%, var(--yellow) 100%) no-repeat fixed;
 }
 
 .hero-flex {
@@ -169,7 +170,7 @@ nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
 .hero-about {
     width: 100%;
     padding: 80px 0;
-    background: linear-gradient(135deg, #ffffff 0%, var(--yellow) 100%);
+    background: transparent
 }
 
 /* Make sure the image doesn't overflow its flex container */
