@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalyst | Risha Ranjan</title>
+    <meta name="description" content="Catalyst: an autonomous mobile manipulator for lab automation with 80% end-to-end wellplate pick-and-place success.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Catalyst | Risha Ranjan">
+    <meta property="og:description" content="Catalyst: an autonomous mobile manipulator for lab automation with 80% end-to-end wellplate pick-and-place success.">
+    <meta property="og:image" content="https://risharanjan.github.io/assets/integrated_system.JPG">
+    <meta property="og:url" content="https://risharanjan.github.io/projects/catalyst/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../style.css?v=3">
     <link rel="icon" type="image/png" href="../../assets/logo.png">
 </head>
 
@@ -30,47 +36,83 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container project-page">
         <section class="project-detail-header">
             <span class="tag tag-green">In Progress</span>
             <h1>Catalyst: Mobile Manipulator for Lab Automation</h1>
-            <p class="authors">Team D: <strong>Risha Ranjan</strong>, Srishti Gupta, Shua Halle, Andrew Noble, Aman
-                Tambi</p>
+            <p class="authors">Team D: <strong>Risha Ranjan (Project Manager)</strong>, Srishti Gupta, Shua Halle,
+                Andrew Noble, Aman Tambi</p>
         </section>
 
-        <div class="project-hero-media" style="background-color: var(--pink);">
-            <img src="../../assets/catalyst_arm.png" alt="Catalyst Robot Architecture" class="main-project-img">
-            <img src="../../assets/catalyst_base.png" alt="Catalyst Robot Architecture" class="main-project-img">
-            <img src="../../assets/catalyst_integrated.png" alt="Catalyst Robot Architecture" class="main-project-img">
-        </div>
+        <!-- Overview: summary + key results beside a photo of the robot -->
+        <section class="overview-split">
+            <div>
+                <h2>Project Overview</h2>
+                <p>
+                    Catalyst is an autonomous mobile manipulator designed to automate repetitive tasks in laboratory
+                    environments, specifically the high-precision handling of wellplates. The system integrates
+                    perception, navigation (<strong>Nav2</strong> and <strong>FAST-LIO</strong>), motion planning
+                    (<strong>MoveIt2</strong>), and control into a single <strong>ROS 2</strong> pipeline.
+                </p>
+                <p>
+                    As Project Manager and a software lead, my work centers on the <strong>Perception-to-Manipulation
+                        pipeline</strong>, bridging the gap between raw sensor data and reliable robotic interaction.
+                </p>
 
-        <section class="project-content">
+                <div class="stat-row">
+                    <div class="stat">
+                        <span class="stat-value">80%</span>
+                        <span class="stat-label">end-to-end pick-and-place success</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">~4 min</span>
+                        <span class="stat-label">per autonomous cycle</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">6D</span>
+                        <span class="stat-label">markerless pose estimation (in progress)</span>
+                    </div>
+                </div>
+            </div>
+
+            <img src="../../assets/integrated_system.JPG" alt="Integrated Catalyst robot in the lab"
+                class="overview-photo">
+        </section>
+
+        <section class="project-section">
+            <h2>Autonomous Place Demo</h2>
+            <p class="section-caption">Catalyst placing a wellplate onto the Hamilton liquid-handler deck (sped up).</p>
+            <div class="video-container-wide">
+                <video autoplay muted loop playsinline>
+                    <source src="../../assets/place_hamiltont_fast.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section class="project-section">
             <div class="content-grid">
                 <div class="description">
-                    <h2>Project Overview</h2>
-                    <p>
-                        Catalyst is an autonomous mobile manipulator designed to automate repetitive tasks in laboratory
-                        environments, specifically the high-precision handling of wellplates. My work so far centers on
-                        the <strong>Perception-to-Manipulation pipeline</strong>, bridging the gap between raw sensor
-                        data and reliable robotic interaction.
-                    </p>
+                    <h2>My Work</h2>
 
-                    <h3>1. Hand-in-Eye Calibration & TF Validation</h3>
+                    <h3>Spring 2026: Marker-Based Pipeline</h3>
+
+                    <h4>Hand-in-Eye Calibration &amp; TF Validation</h4>
                     <p>
                         To enable the robot to "see" its workspace, I implemented a <strong>Hand-in-Eye
-                            calibration</strong> routine to establish the rigid transform between the camera and the
-                        robot’s end-effector.
+                            calibration</strong> routine that established the rigid transform between the camera and
+                        the robot’s end-effector.
                     </p>
                     <ul>
                         <li>Used an <strong>Intel RealSense D435i</strong> mounted directly to the xArm6 end-effector.
                         </li>
-                        <li>Solved the calibration using the $AX = XB$ formulation, utilizing 27 unique AprilTag
+                        <li>Solved the calibration using the AX = XB formulation, utilizing 27 unique AprilTag
                             configurations to optimize the static transform.</li>
                         <li>Validated the transform tree in RViz to ensure that AprilTag pose estimates remained
                             consistent across the entire arm workspace.</li>
                     </ul>
 
-                    <h3>2. Wellplate Grasp Pose Computation</h3>
+                    <h4>Wellplate Grasp Pose Computation</h4>
                     <p>
                         Following calibration, I developed the logic to translate detected markers into actionable Tool
                         Center Point (TCP) targets.
@@ -80,9 +122,33 @@
                             3D-printed gripper fingers relative to the final robot link.</li>
                         <li><strong>Frame Chaining:</strong> Built a pipeline to compute the wellplate center by
                             measuring offsets from AprilTags mounted on the physical stand.</li>
-                        <li><strong>Coordinate Alignment:</strong> Debugging rotational frame misalignments to ensure
-                            the robot can grasp objects even when they are rotated relative to the table edge.</li>
+                        <li><strong>Coordinate Alignment:</strong> Debugged rotational frame misalignments so the
+                            robot could grasp objects even when they were rotated relative to the table edge.</li>
+                        <li><strong>Force-Torque Guidance:</strong> Used force-torque sensor feedback to guide the
+                            final approach and placement, making pick-and-place robust to small pose errors.</li>
                     </ul>
+
+                    <h3>Fall 2026: Markerless 6D Pose Estimation</h3>
+                    <p>
+                        This semester, I am upgrading perception so the robot no longer depends on fiducial markers
+                        attached to lab objects.
+                    </p>
+                    <ul>
+                        <li><strong>Text-Prompted Segmentation:</strong> Integrating <strong>SAM 3</strong> to segment
+                            wellplates and lab objects from RGB-D frames using natural-language prompts.</li>
+                        <li><strong>6D Pose Estimation:</strong> Feeding those segmentation masks into
+                            <strong>FoundationPose</strong> to estimate full object poses directly, removing the need
+                            for AprilTags.</li>
+                        <li><strong>Pipeline Integration:</strong> Connecting the markerless pose estimates to the
+                            existing grasp-pose and MoveIt2 pipeline so they work with the rest of the system.</li>
+                    </ul>
+
+                    <figure class="project-figure">
+                        <img src="../../assets/overlay.png"
+                            alt="Estimated wellplate pose overlaid on the camera image, showing the plate outline, A1 well, and pose axes">
+                        <figcaption>Estimated wellplate pose overlaid on the camera image: plate outline, A1 well, and
+                            pose axes.</figcaption>
+                    </figure>
                 </div>
 
                 <aside class="sidebar-content">
@@ -90,44 +156,60 @@
                         <h3>Technical Stack</h3>
                         <ul>
                             <li><strong>Framework:</strong> ROS2 (Jazzy), Docker</li>
-                            <li><strong>Manipulation:</strong> MoveIt2, xArm6</li>
-                            <li><strong>Perception:</strong> RealSense, AprilTags</li>
+                            <li><strong>Manipulation:</strong> MoveIt2, xArm6, Force-Torque Sensing</li>
+                            <li><strong>Navigation:</strong> Nav2, FAST-LIO</li>
+                            <li><strong>Perception:</strong> RealSense, AprilTags, SAM 3, FoundationPose</li>
                             <li><strong>Edge Compute:</strong> Jetson AGX Orin</li>
                             <li><strong>Languages:</strong> Python, C++</li>
                         </ul>
-                    </div>
-
-                    <div class="video-container-vertical" style="margin-top: 30px;">
-                        <video autoplay muted loop playsinline class="portfolio-video">
-                            <source src="../../assets/catalyst_pick.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
                     </div>
                 </aside>
             </div>
         </section>
 
-
-        <section class="challenges-section">
+        <section class="project-section">
             <h2>Engineering Challenges</h2>
             <div class="grid">
-                <div class="card-body"
-                    style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                <div class="card-body challenge-card">
                     <h4>Error Propagation</h4>
-                    <p>Small rotational errors in the camera-to-EE transform amplify across the kinematic chain. I am
-                        currently implementing <strong>temporal averaging</strong> of pose detections to filter out
-                        single-frame noise and improve grasp repeatability.</p>
+                    <p>Small rotational errors in the camera-to-EE transform amplify across the kinematic chain. I
+                        added <strong>temporal averaging</strong> of pose detections to filter out single-frame noise,
+                        and combined it with force-torque guided placement, which helped the system reach 80%
+                        end-to-end success.</p>
                 </div>
-                <div class="card-body"
-                    style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                    <h4>Mechanical Compliance</h4>
-                    <p>Our custom 3D-printed gripper introduces minor flex under load. To maintain precision placement
-                        of wellplates, I am refining the CAD models and adjusting the software-defined TCP to account
-                        for finger deflection.</p>
+                <div class="card-body challenge-card">
+                    <h4>Markerless Pose Robustness</h4>
+                    <p>Without fiducials, pose estimates must hold up on objects that are hard to perceive, such as
+                        transparent or symmetric wellplates, and under changing lab lighting. I am evaluating
+                        FoundationPose accuracy against our AprilTag baseline to make sure grasp precision stays the
+                        same.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>The Team</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../../assets/Team_pic.JPG" alt="Team D with the Catalyst robot"
+                        style="object-position: center 30%;">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../assets/Me_presenting.jpg" alt="Risha presenting Catalyst to visitors">
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="mailto:rishar@andrew.cmu.edu">Email</a>
+            <a href="https://www.linkedin.com/in/risha-ranjan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/RishaRanjan" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="../../assets/RishaRanjanResume_2026.pdf">Resume</a>
+        </div>
+        <p>© 2026 Risha Ranjan</p>
+    </footer>
 
 </body>
 
